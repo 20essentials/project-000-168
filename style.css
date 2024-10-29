@@ -1,0 +1,77 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
+}
+
+body {
+  height: 100dvh;
+  background-image: radial-gradient(circle closest-corner, transparent 30%, #aab2ff);
+  transform-style: preserve-3d;
+  perspective: 5000px;
+}
+
+.container-shadow {
+  transform-style: preserve-3d;
+  position: absolute;
+  perspective: 5000px;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+
+  @media (width <= 1111px) {
+    zoom: .7;
+  }
+}
+
+.container {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  perspective: 5000px;
+  animation: rotar 5s linear infinite;
+
+  .side {
+    width: inherit;
+    height: inherit;
+    background-image: linear-gradient(0deg, #60efff, #aab2ff, #00ff87);
+    position: absolute;
+
+    transform-style: preserve-3d;
+    perspective: 5000px;
+
+    &:nth-child(1) {
+      transform: rotateX(90deg);
+    }
+
+    &:nth-child(2) {
+      transform: rotateY(90deg);
+    }
+
+    &:nth-child(3) {
+      transform: rotateX(270deg);
+    }
+
+    &:nth-child(4) {
+      transform: rotateX(0deg);
+    }
+  }
+}
+
+@keyframes rotar {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
